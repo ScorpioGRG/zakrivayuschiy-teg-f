@@ -84,6 +84,35 @@
  width: 100%;
 }
 
+.image__filter__style-a {
+  filter: saturate(200%) contrast(110%);
+  
+}
+
+.image__filter__style-b {
+  filter: contrast(110%);
+}
+
+.image__filter__style-c {
+  filter: sepia(25%);
+}
+
+.image__filter__style-c {
+  filter: blur(1px) contrast(120%);
+}
+
+.image__filter__style-d {
+    filter: contrast(110%);
+}
+
+.image__filter__style-e {
+  filter: saturate(900%) blur(1px);
+}
+
+.image__filter__style-f {
+  filter: invert(100%);
+}
+
 .main__text {
   padding: 0px 25px 25px 25px; /*везде*/
   font-variation-settings: var(--main-text-font-weight);
@@ -107,7 +136,7 @@ padding-bottom: 25px;
   0 1px #fff,
   1px 0 #fff,
   0 -1px #fff;
-  mix-blend-mode: hard-light;
+  mix-blend-mode: /*hard-light*/  hard-light screen;
   opacity: 0.5;
 }
 
@@ -126,20 +155,27 @@ padding-bottom: 25px;
   margin-right: 25px;
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 5px;
 }
 
 /*кнопка - сердечко*/
 .card__icon-button {
-  width: 27px;
-  height: 24px;
+  width: 38px;
+  height: 38px;
   background-color: transparent;
-  background-image: url(../svg/heart.svg); /*временное решение*/
   background-size: cover;
-  border: none;
+  display: flex;
+  justify-content: center;
+  padding: 2px 0px 0px 0px;
+  border: 2px solid transparent;
+  transition: border-color 0.3s ease;
 }
 
 .button__general {
+  /*анимация шторки - позиционирование и обрезка лишнего*/
+  position: relative;
+  overflow: hidden;
+  /*анимация шторки*/
   font-size: 14px;
   line-height: 90%;
   border: 2px solid var(--main-color);
@@ -215,7 +251,6 @@ dialog[open].save__as-dialog {
   height: 38px;
 }
 
-
 .button__text {
   /*для анимации*/
 }
@@ -257,5 +292,131 @@ dialog[open].save__as-dialog {
     width: 341px;
   }
 
+}
 
+/*отключаем фокусы от браузера*/
+*:focus {
+  outline: none;
+}
+
+.button__general:focus {
+  box-shadow: 2px 2px var(--main-color);
+}
+
+.button__general::before {
+  content: '';
+  mix-blend-mode: difference;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  width: 0%;
+  height: 100%;
+  background-color: #fff;
+  transition: width 0.5s ease-in-out;
+}
+
+.button__general:hover::before {
+  width: 100%;
+}
+
+
+.card__icon-button:focus-visible {
+  border-color: var(--main-color);
+}
+
+.sparks {
+  opacity: 0;
+}
+
+.core {
+  fill: transparent;
+  transition: fill 0.3s ease;
+  transition-delay: 0.03s; /*задержка обратного состояния*/
+}
+
+.card__icon-button:hover .core {
+  fill: #000;
+  transition: fill 0.3s ease;
+}
+
+.main-body {
+  fill: transparent;
+  transition: fill 0.0s ease;
+}
+
+.card__icon-button:hover .main-body {
+  fill: #000;
+  transition: fill 0.3s 0.05s ease;
+}
+
+.card__icon-button:active .main-body {
+  fill: var(--heart-bloody);
+  transition: fill 0.3s 0.05s ease;
+}
+
+.card__icon-button:active .core {
+  fill: var(--heart-bloody);
+  transition: fill 0.3s ease;
+}
+
+.contour {
+  fill: var(--heart-contour);
+  transition: fill 0.1s linear;
+}
+
+
+
+.like-icon.is-liked .core {
+  fill: var(--heart-bloody);
+  transition: fill 0.3s  ease;
+}
+
+.like-icon.is-liked .main-body {
+  fill: var(--heart-bloody);
+  transition: fill 0.3s 0.05s ease;
+}
+
+.like-icon.is-liked .contour {
+  fill: var(--heart-bloody);
+  transition: fill 0.3s 0.06s ease;
+}
+
+
+
+@keyframes heartbeat {
+  0% {
+    scale: 1;
+  }
+  100% {
+    transform: scale(1.25);
+  }
+}
+
+
+
+@keyframes sparks {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.like-icon.is-liked .heart {
+ animation: heartbeat 0.3s ease-in;
+ animation-iteration-count: 1;
+ animation-delay: 0.1s;
+}
+
+.like-icon.is-liked .sparks {
+  animation: sparks 0.3s ease-in;
+  animation-iteration-count: 1;
+  animation-delay: 0.3s;
+}
+
+.video {
+  width: 100%;
+  aspect-ratio: 3/2;
+  
 }
