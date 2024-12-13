@@ -94,10 +94,6 @@
 }
 
 .image__filter__style-c {
-  filter: sepia(25%);
-}
-
-.image__filter__style-c {
   filter: blur(1px) contrast(120%);
 }
 
@@ -219,7 +215,7 @@ padding-bottom: 25px;
 }
 
 .floppy {
-  width: clamp(21px, calc(30.463px - (100vw * 0.00657)), 28px); /*21px at 1440*/ 
+  width: clamp(21px, calc(30.463px - (100vw * 0.00657)), 28px); /*21px at 1440*/
   height: clamp(21px, calc(30.463px - (100vw * 0.00657)), 28px); /*21px at 1440*/
 }
 
@@ -234,7 +230,7 @@ dialog[open].save__as-dialog {
   column-gap: 20px;
   row-gap: 30px;
   grid-template-columns: repeat(2, auto);
-  grid-template-rows: repeat(2, auto); 
+  grid-template-rows: repeat(2, auto);
 }
 
 .floppy-save {
@@ -270,9 +266,6 @@ dialog[open].save__as-dialog {
     font-size: 14px;
   }
 
-  .save__as-button {
-    inline-size: 306px;
-  }
 
   .label {
     right: 13px;
@@ -284,6 +277,7 @@ dialog[open].save__as-dialog {
   }
 
   .save__as-button {
+    inline-size: 306px;
     gap: 10px;
   }
 
@@ -418,5 +412,5 @@ dialog[open].save__as-dialog {
 .video {
   width: 100%;
   aspect-ratio: 3/2;
-  
+  border: 0px;
 }
