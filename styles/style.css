@@ -34,8 +34,7 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-content: center;
-  text-align: center;
+  align-items: center;
   gap: 20px;
   border: 2px solid var(--main-color);
   margin-top: 100px; /*везде Desktop-Mobile*/
@@ -49,7 +48,7 @@
 }
 
 .accent__text {
-  font-family: var(--accent-font);
+  font-family: var(--accent-font),  monospace;
   font-weight: 400;
   color: var(--main-color);
 }
@@ -59,58 +58,59 @@
   font-size: clamp(0.875rem, 0.6769rem + 0.8451vw, 1.4375rem);
 }
 
-.article {
+.section {
   max-inline-size: 700px;
   inline-size: 100%;
   border: 2px solid var(--main-color);
   background-color: var(--background-color);
   display: flex;
   flex-direction: column;
+  padding: 0 var(--section-padding) var(--section-padding) var(--section-padding); /*улучшение*/
   margin-bottom: 52px; /*везде 50, 52 - пиксель перфект */
 }
 
-.article:last-of-type {
+.section:last-of-type {
   margin-bottom: 49px; /*по пиксель перфект*/
 }
 
-.article__title {
-  font-variation-settings: "wght" var(--article-title-font-weight);
+.section__title {
+  font-variation-settings: "wght" var(--section-title-font-weight);
   font-size: 18px;
   padding: 5px 10px;
-
+  margin-left: calc((-1) * var(--section-padding));
 }
 
 .image {
  width: 100%;
 }
 
-.image__filter__style-a {
+.image__filter__style-siturate {
   filter: saturate(200%) contrast(110%);
   
 }
 
-.image__filter__style-b {
+.image__filter__style-hue {
   filter: contrast(110%) hue-rotate(90deg);
 }
 
-.image__filter__style-c {
+.image__filter__style-video_denoise {
   filter: blur(1px) contrast(120%);
 }
 
-.image__filter__style-d {
+.image__filter__style-contrast {
     filter: contrast(110%);
 }
 
-.image__filter__style-e {
+.image__filter__style-flame {
   filter: saturate(900%) blur(1px);
 }
 
-.image__filter__style-f {
+.image__filter__style-invert {
   filter: invert(100%);
 }
 
 .main__text {
-  padding: 0px 25px 25px 25px; /*везде*/
+  padding-bottom: 25px; /*везде*/
   font-variation-settings: "wght" var(--main-text-font-weight);
   font-size: 18px;
   line-height: 117%;
@@ -118,13 +118,15 @@
 
 .labled {
 position: relative;
+inline-size: calc(100% + calc(2 * var(--section-padding)));
+margin-left: calc((-1) * var(--section-padding));
 padding-bottom: 25px;
 }
 
 .label {
   position: absolute;
   top: 25px; /*везде*/
-  right: clamp(13px, calc((100vw * 0.01127) + 8.78px), 25px);; /*25px меняется  до 13*/
+  right: clamp(13px, calc((100vw * 0.01127) + 8.78px), 25px);; /*25px меняется до 13*/
   font-size: 14px;
   color: var(--main-color);
   text-shadow:
@@ -144,11 +146,8 @@ padding-bottom: 25px;
   }
 }
 
-
 .buttons {
   align-self: flex-end;
-  margin-bottom: 25px;
-  margin-right: 25px;
   display: flex;
   align-items: center;
   gap: 5px;
@@ -168,10 +167,7 @@ padding-bottom: 25px;
 }
 
 .button__general {
-  /*анимация шторки - позиционирование и обрезка лишнего*/
   position: relative;
-  overflow: hidden;
-  /*анимация шторки*/
   font-size: 14px;
   line-height: 90%;
   border: 2px solid var(--main-color);
@@ -189,6 +185,7 @@ padding-bottom: 25px;
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding-bottom: 100px;
 
 }
 
@@ -248,11 +245,11 @@ dialog[open].save__as-dialog {
 }
 
 .button__text {
-  /*для анимации*/
+  /*для изменения надписи из скрипта из скрипта скрипта*/
 }
 
 /*опишем все в конце для избежанию сюрпризов*/
-@media (width <= 375px) { /*отладка*/
+@media (width <= 375px) {
   .header {
     inline-size: 100%;
     block-size: 327px;
@@ -265,7 +262,6 @@ dialog[open].save__as-dialog {
   .header__title-text {
     font-size: 14px;
   }
-
 
   .label {
     right: 13px;
@@ -313,7 +309,6 @@ dialog[open].save__as-dialog {
   width: 100%;
 }
 
-
 .card__icon-button:focus-visible {
   border-color: var(--main-color);
 }
@@ -329,7 +324,7 @@ dialog[open].save__as-dialog {
 }
 
 .card__icon-button:hover .core {
-  fill: #000;
+  fill: var(--main-color);
   transition: fill 0.3s ease;
 }
 
@@ -339,7 +334,7 @@ dialog[open].save__as-dialog {
 }
 
 .card__icon-button:hover .main-body {
-  fill: #000;
+  fill: var(--main-color);
   transition: fill 0.3s 0.05s ease;
 }
 
@@ -358,8 +353,6 @@ dialog[open].save__as-dialog {
   transition: fill 0.1s linear;
 }
 
-
-
 .like-icon.is-liked .core {
   fill: var(--heart-bloody);
   transition: fill 0.3s  ease;
@@ -375,18 +368,14 @@ dialog[open].save__as-dialog {
   transition: fill 0.3s 0.06s ease;
 }
 
-
-
 @keyframes heartbeat {
   0% {
-    scale: 1;
+    transform: scale(1);
   }
   100% {
     transform: scale(1.25);
   }
 }
-
-
 
 @keyframes sparks {
   0% {
@@ -398,9 +387,9 @@ dialog[open].save__as-dialog {
 }
 
 .like-icon.is-liked .heart {
- animation: heartbeat 0.3s ease-in;
- animation-iteration-count: 1;
- animation-delay: 0.1s;
+  animation: heartbeat 0.3s ease-in;
+  animation-iteration-count: 1;
+  animation-delay: 0.1s;
 }
 
 .like-icon.is-liked .sparks {
