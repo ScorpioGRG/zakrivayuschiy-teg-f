@@ -93,6 +93,10 @@
   filter: contrast(110%) hue-rotate(90deg);
 }
 
+.image__filter__style-sepia {
+  filter: sepia(10%);
+}
+
 .image__filter__style-video_denoise {
   filter: blur(1px) contrast(120%);
 }
