@@ -90,7 +90,7 @@
 }
 
 .image__filter__style-b {
-  filter: contrast(110%);
+  filter: contrast(110%) hue-rotate(90deg);
 }
 
 .image__filter__style-c {
