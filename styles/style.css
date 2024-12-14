@@ -74,7 +74,7 @@
 }
 
 .article__title {
-  font-variation-settings: var(--article-title-font-weight);
+  font-variation-settings: "wght" var(--article-title-font-weight);
   font-size: 18px;
   padding: 5px 10px;
 
@@ -111,7 +111,7 @@
 
 .main__text {
   padding: 0px 25px 25px 25px; /*везде*/
-  font-variation-settings: var(--main-text-font-weight);
+  font-variation-settings: "wght" var(--main-text-font-weight);
   font-size: 18px;
   line-height: 117%;
 }
