@@ -2,12 +2,11 @@
 :root {
     --main-font: 'Inter-Variable';
     --accent-font: 'PressStart2P-Regular';
-    --background-image: url(../images/background.svg);
     --main-color: #000;
     --background-color: #fff;
-    --article-title-font-weight: 700;
+    --section-title-font-weight: 700;
     --main-text-font-weight: 400;
     --heart-contour: #000;
-    --heart-bloody:#FF0000;
+    --heart-bloody: #FF0000;
     --section-padding: 25px;
 }
