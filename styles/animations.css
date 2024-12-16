@@ -12,9 +12,11 @@
 
 @keyframes heartbeat {
     0% {
+      transform-origin: center;
       transform: scale(1);
     }
     100% {
+      transform-origin: center;
       transform: scale(1.25);
     }
   }

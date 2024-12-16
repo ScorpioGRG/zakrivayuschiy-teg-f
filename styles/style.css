@@ -27,7 +27,6 @@
 .header {
   max-inline-size: 700px;
   inline-size: 100%;
-  block-size: min(calc((100vw * 0.038) + 313.56px), 368px); /*368 at 1440*/
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -37,12 +36,15 @@
   margin-top: 100px; /*везде Desktop-Mobile*/
   background-color: var(--background-color, #fff);
   margin-bottom: 100px; /*везде Desktop-Mobile*/
+  padding:  clamp(120px, calc((100vw * 0.00751) + 117.856px) , 128px) 0px;
+
 }
 
 .header__title {
   font-size: clamp(3.0625rem, 2.7104rem + 1.5023vw, 4.0625rem); /*65px;*/
   text-transform: uppercase;
 }
+
 
 .accent__text {
   font-family: var(--accent-font, 'PressStart2P-Regular'), monospace;
@@ -135,8 +137,8 @@
   0 1px #fff,
   1px 0 #fff,
   0 -1px #fff;
-  mix-blend-mode:difference; /*hard-light - по тз, но выглядит хуже*/
-  opacity: 0.5;
+  mix-blend-mode: hard-light; /* hard-light - по тз*/
+  opacity: 0.6; /*на 0.1 ярче тз, так получше*/
 }
 
 @supports((text-stroke:  1px #fff) or (-webkit-text-stroke: 1px #fff)) {
@@ -146,6 +148,7 @@
       text-shadow: none;
   }
 }
+
 
 .buttons {
   align-self: flex-end;
@@ -267,7 +270,7 @@ dialog[open].save__as-dialog {
 @media (width <= 375px) {
   .header {
     inline-size: 100%;
-    min-block-size: 327px;
+    padding: 120px 0px;
   }
 
   .header__title {
